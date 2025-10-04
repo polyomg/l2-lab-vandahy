@@ -1,0 +1,39 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bài 1- Lab7: Searching by product</title>
+</head>
+<body>
+    <form action="/product/search" method="post">
+        <input name="min" th:value="${param.min}" placeholder="Min Price">
+        <input name="max" th:value="${param.max}" placeholder="Max Price">
+        <button type="submit">Search</button>
+    </form>
+
+    <table border="1" style="border-collapse: collapse; width: 100%;">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Create Date</th>
+        </tr>
+        </thead>
+        <tbody>
+        <th:block th:each="item : ${items}">
+            <tr>
+                <td th:text="${item.id}"></td>
+                <td th:text="${item.name}"></td>
+                <td th:text="${item.price}"></td>
+                <td th:text="${item.createDate}"></td>
+            </tr>
+        </th:block>
+        </tbody>
+    </table>
+
+</body>
+</html>

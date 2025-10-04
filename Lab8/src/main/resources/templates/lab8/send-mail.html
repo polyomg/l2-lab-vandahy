@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Send Mail</title>
+</head>
+<body>
+<h2>Send Email</h2>
+<form action="/mail/send" method="post" enctype="multipart/form-data">
+    <label>To:</label><br>
+    <input type="text" name="to"><br><br>
+
+    <label>Cc:</label><br>
+    <input type="text" name="cc"><br><br>
+
+    <label>Bcc:</label><br>
+    <input type="text" name="bcc"><br><br>
+
+    <label>Subject:</label><br>
+    <input type="text" name="subject"><br><br>
+
+    <label>Body:</label><br>
+    <textarea name="body" rows="5" cols="40"></textarea><br><br>
+
+<!--    <label>Attachments (comma separated paths):</label><br>-->
+<!--    <input type="text" name="filenames"><br><br>-->
+
+    <button type="submit">Send trực tiếp</button>
+    <button type="submit" formaction="/mail/push">Push vào hàng đợi</button>
+</form>
+</body>
+</html>
