@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Máy tính HCN</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    <style>
+        main { max-width: 720px; margin: 48px auto; }
+    </style>
+
+    </head>
+<body>
+<main class="container">
+    <h1>Tính chu vi và diện tích HCN</h1>
+    <form action="/rectangle/calculate" method="post">
+        <div class="grid">
+            <label>Chiều rộng
+                <input type="number" name="width" step="any" min="0" th:value="${width}">
+            </label>
+            <label>Chiều dài
+                <input type="number" name="length" step="any" min="0" th:value="${length}">
+            </label>
+        </div>
+        <button type="submit">Tính</button>
+    </form>
+
+    <article th:if="${error}" style="margin-top:16px;">
+        <mark th:text="${error}">Lỗi</mark>
+    </article>
+
+    <article th:if="${area != null}" style="margin-top:16px;">
+        <h3>Kết quả</h3>
+        <p>Diện tích: <strong th:text="${area}">0</strong></p>
+        <p>Chu vi: <strong th:text="${perimeter}">0</strong></p>
+    </article>
+    <p style="margin-top:8px;"><a href="/rectangle/form">Nhập lại</a></p>
+</main>
+</body>
+</html>
+
