@@ -9,8 +9,10 @@
 </head>
 <body>
     <h3>CATEGORY MANAGEMENT</h3>
-    <th:block th:replace="@{/category/form} "/>
+    <th:block th:replace="~{lab6/category/form :: form}"></th:block>
     <hr>
-    <th:block th:replace="@{|category/table|} "/>
+    <th:block th:replace="~{lab6/category/table :: table}"></th:block>
+
+
 </body>
 </html>

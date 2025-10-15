@@ -1,0 +1,35 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lab6 - Bài 3</title>
+</head>
+<body>
+    <h3>SORTING BY
+        <th:block th:text="${param.field}"/>
+    </h3>
+
+    <table border="1" style="width: 100%">
+        <thead>
+            <tr>
+                <th><a href="/product/sort?field=id">ID</a></th>
+                <th><a href="/product/sort?field=name">Name</a></th>
+                <th><a href="/product/sort?field=price">Price</a></th>
+                <th><a href="/product/sort?field=createDate">Create At</a></th>
+            </tr>
+        </thead>
+
+        <tbody th:each="item : ${items}">
+            <tr>
+                <td th:text="${item.id}"></td>
+                <td th:text="${item.name}"></td>
+                <td th:text="${item.price}"></td>
+                <td th:text="${item.createDate}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
