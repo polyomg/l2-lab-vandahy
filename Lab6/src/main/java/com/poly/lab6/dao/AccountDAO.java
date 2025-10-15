@@ -1,9 +1,9 @@
 package com.poly.lab6.dao;
 
+import com.poly.lab6.entity.lab6.Account;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
-import poly.edu.entity.lab6.Account;
 
 import java.util.List;
 

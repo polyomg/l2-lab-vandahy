@@ -1,11 +1,12 @@
 package com.poly.lab6.controller;
 
+import com.poly.lab6.dao.CategoryDAO;
+import com.poly.lab6.entity.lab6.Category;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import poly.edu.dao.CategoryDAO;
-import poly.edu.entity.lab6.Category;
+
 
 import java.util.List;
 

@@ -1,5 +1,7 @@
 package com.poly.lab6.controller;
 
+import com.poly.lab6.dao.ProductDAO;
+import com.poly.lab6.entity.lab6.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -9,8 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import poly.edu.dao.ProductDAO;
-import poly.edu.entity.lab6.Product;
+
 
 import java.util.List;
 import java.util.Optional;
