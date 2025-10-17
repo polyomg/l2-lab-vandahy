@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh sách nhân viên</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    <style>
+        .staff-item {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+        }
+
+        .staff-item img {
+            margin-right: 15px;
+            border-radius: 50%;
+        }
+
+        .staff-info {
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+<main class="container">
+    <h1>Danh sách nhân viên</h1>
+
+    <div th:each="staff, st : ${list}">
+        <div class="staff-item">
+            <img th:src="@{|/images/${staff.photo}|}" style="height:40px" th:alt="${staff.name}">
+            <div class="staff-info">
+                <b th:text="@{|${st.count}. |}"></b>
+                <b th:text="${#strings.capitalizeWords(staff.name)}"></b>,
+                <b th:text="${#numbers.formatDecimal(staff.salary, 0, 'COMMA', 2, 'POINT')}"></b>
+                <b th:switch="*{staff.level}" >
+                    <b th:case="0" style="color: red">Úy</b>
+                    <b th:case="1" style="color: orange">Tá</b>
+                    <b th:case="2" style="color: blue">Tướng</b>
+                    <b th:case="*">Không rõ</b>
+                </b>
+            </div>
+        </div>
+        <th:block th:if="${!st.last}">
+            <hr>
+        </th:block>
+    </div>
+</main>
+</body>
+</html>

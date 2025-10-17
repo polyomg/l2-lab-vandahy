@@ -1,0 +1,52 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Binding Data</title>
+</head>
+<body>
+    <form th:object="${staff}" action="/staff/create/save" method="post" enctype="multipart/form-data">
+        <label>Email</label>
+        <input th:field="*{id}">
+        <i th:errors="*{id}"></i>
+        <hr>
+        <label>Họ và tên</label>
+        <input th:field="*{name}">
+        <i th:errors="*{name}"></i>
+        <hr>
+        <label>Giới tính</label>
+        <input type="radio" th:field="*{gender}" value="true" th:text="Nam">
+        <input type="radio" th:field="*{gender}" value="false" th:text="Nữ">
+        <i th:errors="*{gender}"></i>
+        <hr>
+        <label>Ngày sinh</label>
+        <input name="birthday" th:value="*{#dates.format(birthday, 'MM/dd/yyyy')}">
+        <i th:errors="*{birthday}"></i>
+        <hr>
+        <label>Hình ảnh</label>
+        <input type="hidden" th:field="*{photo}">
+        <input type="file" name="photo_file">
+        <hr>
+        <label>Cấp bậc</label>
+        <select th:field="*{level}">
+            <option value="0">Uý</option>
+            <option value="1">Tá</option>
+            <option value="2">Tướng</option>
+        </select>
+        <hr>
+        <label>Lương</label>
+        <input th:field="*{salary}">
+        <i th:errors="*{salary}"></i>
+        <hr>
+        <button type="submit">Create</button>
+    </form>
+    <i th:text="${message}"></i>
+
+    <style>
+        i{color: red}
+    </style>
+</body>
+</html>

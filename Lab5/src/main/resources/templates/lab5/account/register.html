@@ -1,0 +1,21 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Regsister</title>
+</head>
+<body>
+    <form action="/account/register" method="post" enctype="multipart/form-data">
+        <input name="username">
+        <input name="password" type="password">
+        <input type="file" name="photo" accept="image/*">
+        <button>Register</button>
+    </form>
+    <div>
+        <a href="/account/login">Already have an account?</a>
+    </div>
+</body>
+</html>

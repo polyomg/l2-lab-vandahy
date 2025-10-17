@@ -1,0 +1,37 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bài 3: Product</title>
+</head>
+<body>
+    <form action="/product/save" method="post">
+        <input name="name" type="text">
+        <input name="price" type="number">
+        <button>Save</button>
+    </form>
+
+    <!-- Hiển thị p1 (GET /product/form) -->
+    <ul>
+        <li th:text="${p1.name}">?1name</li>
+        <li th:text="${p1.price}">?1price</li>
+    </ul>
+
+    <!-- Hiển thị p2 (POST /product/save) -->
+    <ul>
+        <li th:text="${p2.name}">?2name</li>
+        <li th:text="${p2.price}">?2price</li>
+    </ul>
+
+    <!-- Hiển thị danh sách items -->
+    <ul>
+        <th:block th:each="item : ${items}">
+            <li th:text="${item.name}">item.name</li>
+            <li th:text="${item.price}">item.price</li>
+        </th:block>
+    </ul>
+</body>
+</html>
